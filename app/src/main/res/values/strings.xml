@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Score</string>
+    <string name="start_button">Start</string>
+    <string name="gameTitle">Track Your Points</string>
+    <string name="player">Player</string>
+    <string name="player_name">Player name</string>
+    <string name="edit_player_title">Edit player name</string>
+    <string name="player_name_ok">Ok</string>
+    <string name="player_name_cancel">Cancel</string>
+</resources>
