@@ -8,16 +8,20 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class EditPlayerName extends DialogFragment {
 
     public interface EditPlayerNameNoticeListener {
-        void onDialogPositiveClick(DialogFragment dialog, int playerId);
-        void onDialogNegativeClick(DialogFragment dialog);
+        void onDialogPositiveClick(EditPlayerName dialog, int playerId);
+        void onDialogNegativeClick(EditPlayerName dialog);
     }
 
     EditPlayerNameNoticeListener editPlayerNameNoticeListener;
+
+    private String text;
 
     @Override
     public void onAttach(Activity activity) {
@@ -30,17 +34,25 @@ public class EditPlayerName extends DialogFragment {
         }
     }
 
+    public String getText() {
+        return text;
+    }
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Bundle bundle = getArguments();
         final int playerId = bundle.getInt("playerId");
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater layoutInflater = getActivity().getLayoutInflater();
-        builder.setView(layoutInflater.inflate(R.layout.edit_name, null))
+        View view = layoutInflater.inflate(R.layout.edit_name, null);
+        final EditText ttt = view.findViewById(R.id.player_name1);
+
+
+        builder.setView(view)
             .setTitle(R.string.edit_player_title)
                 .setPositiveButton(R.string.player_name_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        EditPlayerName.this.text = ttt.getText().toString();
                         editPlayerNameNoticeListener.onDialogPositiveClick(EditPlayerName.this, playerId);
                     }
                 })

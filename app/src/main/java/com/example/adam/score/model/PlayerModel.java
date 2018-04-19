@@ -2,6 +2,11 @@ package com.example.adam.score.model;
 
 public class PlayerModel {
     private int playerId;
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
     private String playerName;
     private int playerScore;
 
