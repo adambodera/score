@@ -7,4 +7,13 @@
     <string name="edit_player_title">Edit player name</string>
     <string name="player_name_ok">Ok</string>
     <string name="player_name_cancel">Cancel</string>
+    <string name="number_of_players">Players</string>
+    <integer name="number_of_players_default">50</integer>
+    <string name="number_of_players_summary">Enter the number of players</string>
+    <string name="number_of_players_dialog_title">Select the value</string>
+    <string name="score_autosave">Score autosave</string>
+    <string name="score_autosave_summary">Automatically save the winner\'s score to the leaderboard</string>
+    <string name="pref_gameplay_category">Gameplay</string>
+    <string name="title_activity_settings">Settings</string>
+
 </resources>

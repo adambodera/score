@@ -1,6 +1,8 @@
 package com.example.adam.score;
 
 import android.app.DialogFragment;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,16 +25,17 @@ public class GameActivity extends AppCompatActivity
     private Integer numOfPlayers;
     private ArrayList<PlayerModel> playerList;
     private PlayerBoxAdapter playerBoxAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        this.numOfPlayers = getIntent().getIntExtra(MainActivity.NUM_OF_PLAYERS, 2);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String pref_num_of_players = preferences.getString(SettingsActivity.KEY_PREF_NUM_OF_PLAYERS, "");
+        this.numOfPlayers = Integer.parseInt(pref_num_of_players);
 
         this.gameView = findViewById(R.id.game_view);
-        List<String> items = Arrays.asList(getResources().getStringArray(R.array.num_of_players));
-        items.subList(0, numOfPlayers-1);
 
         String playerDefaultName = getResources().getString(R.string.player);
         playerList = new ArrayList<>();
@@ -48,7 +51,6 @@ public class GameActivity extends AppCompatActivity
     public void onDialogPositiveClick(EditPlayerName dialog, int playerId) {
         playerList.get(playerId).setPlayerName(dialog.getText().toString());
         playerBoxAdapter.notifyDataSetChanged();
-        int i =1;
     }
 
     @Override
