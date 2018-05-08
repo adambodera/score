@@ -6,11 +6,19 @@
         <ListPreference
             android:key="pref_number_of_players"
             android:title="@string/number_of_players"
-            android:defaultValue="@integer/number_of_players_default"
+            android:defaultValue="@string/number_of_players_default"
             android:summary="@string/number_of_players_summary"
             android:dialogTitle="@string/number_of_players_dialog_title"
             android:entries="@array/pref_num_of_players"
             android:entryValues="@array/pref_num_of_players_values" />
+        <ListPreference
+            android:key="pref_starting_num_of_points"
+            android:title="@string/starting_num_of_points"
+            android:defaultValue="@string/starting_num_of_points_default"
+            android:summary="@string/starting_num_of_points_summary"
+            android:dialogTitle="@string/starting_num_of_points_dialog_title"
+            android:entries="@array/pref_starting_num_of_points"
+            android:entryValues="@array/pref_starting_num_of_points_values" />
         <SwitchPreference
             android:key="pref_score_autosave"
             android:title="@string/score_autosave"

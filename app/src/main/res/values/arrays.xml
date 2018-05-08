@@ -12,4 +12,16 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+    <string-array name="pref_starting_num_of_points">
+        <item>40 Points</item>
+        <item>50 Points</item>
+        <item>60 Points</item>
+        <item>70 Points</item>
+    </string-array>
+    <string-array name="pref_starting_num_of_points_values">
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+    </string-array>
 </resources>
