@@ -7,4 +7,5 @@
     <string name="edit_player_title">Edit player name</string>
     <string name="player_name_ok">Ok</string>
     <string name="player_name_cancel">Cancel</string>
+    <string name="starting_points">Starting points:</string>
 </resources>
