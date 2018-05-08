@@ -44,7 +44,7 @@ public class EditPlayerName extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater layoutInflater = getActivity().getLayoutInflater();
         View view = layoutInflater.inflate(R.layout.edit_name, null);
-        final EditText ttt = view.findViewById(R.id.player_name1);
+        final EditText input_name = view.findViewById(R.id.input_name);
 
 
         builder.setView(view)
@@ -52,7 +52,7 @@ public class EditPlayerName extends DialogFragment {
                 .setPositiveButton(R.string.player_name_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        EditPlayerName.this.text = ttt.getText().toString();
+                        EditPlayerName.this.text = input_name.getText().toString();
                         editPlayerNameNoticeListener.onDialogPositiveClick(EditPlayerName.this, playerId);
                     }
                 })

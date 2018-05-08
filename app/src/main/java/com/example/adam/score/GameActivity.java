@@ -21,6 +21,7 @@ public class GameActivity extends AppCompatActivity
 
     private GridView gameView;
     private Integer numOfPlayers;
+    private Integer numOfStartingPoints;
     private ArrayList<PlayerModel> playerList;
     private PlayerBoxAdapter playerBoxAdapter;
     @Override
@@ -29,6 +30,7 @@ public class GameActivity extends AppCompatActivity
         setContentView(R.layout.activity_game);
 
         this.numOfPlayers = getIntent().getIntExtra(MainActivity.NUM_OF_PLAYERS, 2);
+        this.numOfStartingPoints = getIntent().getIntExtra(MainActivity.NUM_OF_STARTING_POINTS, 0);
 
         this.gameView = findViewById(R.id.game_view);
         List<String> items = Arrays.asList(getResources().getStringArray(R.array.num_of_players));
@@ -37,7 +39,7 @@ public class GameActivity extends AppCompatActivity
         String playerDefaultName = getResources().getString(R.string.player);
         playerList = new ArrayList<>();
         for (int i = 0; i < numOfPlayers; i++) {
-            PlayerModel player = new PlayerModel(i+1, playerDefaultName + String.valueOf(i + 1));
+            PlayerModel player = new PlayerModel(i+1, playerDefaultName + String.valueOf(i + 1), numOfStartingPoints);
             playerList.add(player);
         }
         playerBoxAdapter = new PlayerBoxAdapter(this, playerList);
@@ -46,9 +48,8 @@ public class GameActivity extends AppCompatActivity
 
     @Override
     public void onDialogPositiveClick(EditPlayerName dialog, int playerId) {
-        playerList.get(playerId).setPlayerName(dialog.getText().toString());
+        playerList.get(playerId).setPlayerName(dialog.getText());
         playerBoxAdapter.notifyDataSetChanged();
-        int i =1;
     }
 
     @Override

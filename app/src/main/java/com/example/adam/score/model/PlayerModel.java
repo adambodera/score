@@ -2,18 +2,13 @@ package com.example.adam.score.model;
 
 public class PlayerModel {
     private int playerId;
-
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
-    }
-
     private String playerName;
     private int playerScore;
 
-    public PlayerModel(int playerId, String playerName) {
+    public PlayerModel(int playerId, String playerName, int playerScore) {
         this.playerId = playerId;
         this.playerName = playerName;
-        this.playerScore = 0;
+        this.playerScore = playerScore;
     }
 
     public int getPlayerId() {
@@ -22,6 +17,10 @@ public class PlayerModel {
 
     public String getPlayerName() {
         return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
     public int getPlayerScore() {
